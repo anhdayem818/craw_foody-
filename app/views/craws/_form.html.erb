@@ -1,0 +1,17 @@
+<%= form_for(@craw) do |f| %>
+  <% if @craw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@craw.errors.count, "error") %> prohibited this craw from being saved:</h2>
+
+      <ul>
+      <% @craw.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @avatar_url, :class => "img-responsive"%>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Review</div>
+        <div class="panel-body">
+          <p> <%= @sumary.join(',')%></p>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <% @address.each do |e|%>
+            <%unless e.blank? %>
+              <li class="list-group-item"> <%= e.to_s%> </li>
+            <%end %>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"> Info </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <% @info.each do |e|%>
+            <%unless e.blank? %>
+              <li class="list-group-item"> <%= e.to_s%> </li>
+            <%end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"> Dich vu  </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <% @properties.each do |e|%>
+            <%unless e.blank? %>
+              <li class="list-group-item"> <%= e.to_s%> </li>
+            <%end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3> Image</h3>
+  <div class="row">
+    <% @images.each do |link| %>
+      <div class="col-md-4">
+        <%= image_tag link.to_s, :class => "img-responsive", :style => "padding: 20px 15px;" %>
+      </div>
+    <%end %>
+  </div>
+</div>
