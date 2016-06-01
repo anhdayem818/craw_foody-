@@ -44,7 +44,7 @@ class CrawsController < ApplicationController
       properties = pages.search ".micro-property li"
 
       properties.each_with_index do |property, index|
-        @properties << property.text.to_s.gsub!(/\r\n|\r|\n/, ' ')
+        @properties << property.text.to_s.gsub!(/\r\n|\r|\n/, ' ') unless property.attr('class') && property.attr('class').include?('none')
       end
 
       link_to_album = []
