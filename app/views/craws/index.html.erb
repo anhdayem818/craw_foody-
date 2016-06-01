@@ -58,7 +58,9 @@
   <div class="row">
     <% @images.each do |link| %>
       <div class="col-md-4">
-        <%= image_tag link.to_s, :class => "img-responsive", :style => "padding: 20px 15px;" %>
+        <%= link_to link.to_s, :download => link.to_s do%>
+          <%= image_tag link.to_s, :class => "img-responsive", :style => "padding: 20px 15px;" %>
+        <% end %>
       </div>
     <%end %>
   </div>
