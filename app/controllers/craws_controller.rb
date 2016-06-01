@@ -54,10 +54,14 @@ class CrawsController < ApplicationController
       end
 
       link_to_album.each_with_index do |link,index|
-        page = pages.link_with(href: link).click
-        images = page.search('.foody-photo')
-        images.each do |f|
-          @images << f.attributes["href"].text
+        begin
+          page = pages.link_with(href: link).click
+          images = page.search('.foody-photo')
+          images.each do |f|
+            @images << f.attributes["href"].text
+          end
+        rescue
+
         end
       end
 
