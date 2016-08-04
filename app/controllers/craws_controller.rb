@@ -4,7 +4,6 @@ class CrawsController < ApplicationController
   # GET /craws
   # GET /craws.json
   def index
-    @craws = Craw.all
     @images=[]
     @sumary =[]
     @address = []
@@ -78,69 +77,4 @@ class CrawsController < ApplicationController
     end
 
   end
-
-  # GET /craws/1
-  # GET /craws/1.json
-  def show
-  end
-
-  # GET /craws/new
-  def new
-    @craw = Craw.new
-  end
-
-  # GET /craws/1/edit
-  def edit
-  end
-
-  # POST /craws
-  # POST /craws.json
-  def create
-    @craw = Craw.new(craw_params)
-
-    respond_to do |format|
-      if @craw.save
-        format.html { redirect_to @craw, notice: 'Craw was successfully created.' }
-        format.json { render :show, status: :created, location: @craw }
-      else
-        format.html { render :new }
-        format.json { render json: @craw.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /craws/1
-  # PATCH/PUT /craws/1.json
-  def update
-    respond_to do |format|
-      if @craw.update(craw_params)
-        format.html { redirect_to @craw, notice: 'Craw was successfully updated.' }
-        format.json { render :show, status: :ok, location: @craw }
-      else
-        format.html { render :edit }
-        format.json { render json: @craw.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /craws/1
-  # DELETE /craws/1.json
-  def destroy
-    @craw.destroy
-    respond_to do |format|
-      format.html { redirect_to craws_url, notice: 'Craw was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_craw
-      @craw = Craw.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def craw_params
-      params.fetch(:craw, {})
-    end
 end
